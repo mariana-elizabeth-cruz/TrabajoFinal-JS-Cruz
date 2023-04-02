@@ -2,22 +2,21 @@ console.log("Inicio de pruebas");
 let nombre = "";
 let apellido = "";
 let edad = 0;
-let cantidad = 1;
+let cantidad = 5;
 let dia = "";
 
 alert("¡¡¡Inscripciones!!!");
 
 for (let usuario = 1; usuario <= cantidad; usuario++){
-    // let continuar = prompt("Desea continuar: SI / NO");
-    // if (continuar.toUpperCase == "NO") {
-    //     break;
-    // }
+    
     alert("Vamos a inciar la inscripción de tu curso...");
     pedirDatos();
 
+    // Control de edad
     if(edad < 18) {
         cantidad += 1;
         alert("No se puede asignar un turno. Debes ser mayor de edad.");
+        break;
     }
     if (edad >= 18 ) {
         alert("Ahora vamos a asignarte un turno");
@@ -116,7 +115,6 @@ function asignarTurno() {
                 break;
         }
     } while (dia.toUpperCase() == "MARTES" || dia.toUpperCase() == "JUEVES" || dia.toUpperCase() == "DOMINGO");
-    
 }
 
 // pruebas por consola
