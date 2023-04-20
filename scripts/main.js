@@ -1,49 +1,51 @@
-console.log("Inicio de pruebas");
-let nombre = "";
-let apellido = "";
-let edad = 0;
-let cantidad = 5;
-let dia = "";
+alert("¡¡¡Inscripciones Abiertas!!!");
 
-alert("¡¡¡Inscripciones!!!");
-
-for (let usuario = 1; usuario <= cantidad; usuario++){
-    
-    alert("Vamos a inciar la inscripción de tu curso...");
-    pedirDatos();
-
-    // Control de edad
-    if(edad < 18) {
-        cantidad += 1;
-        alert("No se puede asignar un turno. Debes ser mayor de edad.");
-        break;
+// creacion de clase Usuario
+class Usuario {
+    constructor(nombre, apellido, dni, edad, correo, provincia) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.edad = edad;
+        this.correo = correo;
+        this.provincia = provincia;
     }
-    if (edad >= 18 ) {
-        alert("Ahora vamos a asignarte un turno");
-        // Asignamos dia y horarios
-        asignarTurno();
-        
-    }
-
-    // cantidad de turnos restantes
-    let faltanUsuarios = cantidad - usuario;
-    let mensaje = "Aun quedan " + faltanUsuarios + " lugares disponibles ";
-    if (faltanUsuarios == 1) {
-        mensaje = "Queda solo 1 lugar para el cierre de la inscrión al curso de Meditación";
-    }
-    if (faltanUsuarios == 0) {
-        mensaje = "Lo siento, ya no quedan lugares. Nos vemos en la próxima edición.";
-    }
-    alert(mensaje);
-
 }
 
+// Crear array de usuarios
+let misUsuarios = [];
+
+let verificar = "SI";
+
+// Ingreso de datos
+do {
+    alert("Vamos a inciar la inscripción de tu curso...");
+    pedirDatos();
+    const unUsuario = new Usuario(nombre, apellido, dni, edad, correo, provincia);
+    misUsuarios.push(unUsuario);
+
+    // Se asigna un turno dependiendo de la edad
+    controlarInscripcion(nombre, edad);
+
+    verificar = prompt("¿Desea realizar otra inscripción? SI/NO");
+
+} while (verificar.toUpperCase() != "NO");
+
+
+// mostrar lista de usuarios inscriptos
+misUsuarios.forEach( (lista)=> {
+    console.log("Datos personales de los Inscriptos: ", lista);
+} )
+
+
+// Pedimos los datos al usuario 
 function pedirDatos() {
-    // Pedimos el nomnbre, apellido y edad al usuario 
     cargarNombre();
     cargarApellido();
+    cargarDni();
     cargarEdad();
-
+    cargarCorreo();
+    cargarProvincia();
 }
 
 // Controlar nombre
@@ -74,6 +76,20 @@ function cargarApellido() {
     }
 }
 
+// Controlar DNI
+function cargarDni() {
+    let continuar = true;
+    while (continuar) {
+        testDni = parseInt(prompt("Ingrese su número de DNI:"));
+        if(isNaN(testDni) && testDni.length != 0) {
+            alert("Debe ingresar su DNI (solo se permiten números)");
+        } else {
+            dni = testDni;
+            continuar = false;
+        }
+    }
+}
+
 // Controlar edad
 function cargarEdad() {
     let continuar = true;
@@ -88,28 +104,85 @@ function cargarEdad() {
     }
 }
 
+// Controlar Correo
+function cargarCorreo() {
+    let continuar = true;
+    while (continuar) {
+        let testCorreo = prompt("Ingrese su correo electronico");    
+        if (testCorreo.length != 0) {
+            correo = testCorreo;
+            continuar = false;
+        } else {
+            alert("Debe ingresar su correo electronico")
+        }
+    }
+}
+
+// Controlar Provincia
+function cargarProvincia() {
+    let continuar = true;
+    while (continuar) {
+        let testProv = prompt("¿Cúal es tu provincia?");    
+        if (testProv.length != 0) {
+            provincia = testProv;
+            continuar = false;
+        } else {
+            alert("Debe ingresar su nombre...")
+        }
+    }
+}
+
+function controlarInscripcion (nombre, edad) {
+    // Control de edad
+    if(edad < 18) {
+        alert("Lo siento ".concat(nombre, ", no se puede asignar un turno. Debes ser mayor de edad."));
+    }
+    if (edad >= 18 ) {
+        alert("Ahora vamos a asignarte un turno ".concat(nombre));
+
+        // Asignamos una fecha a la inscripcion 
+        asignarTurno();
+    }
+}
+
 //Funcion para otorgar turno
 function asignarTurno() {
+    let fechaLunes = new Date(2023, 5, 15, 18, 00, 00);
+    let fechaMiercoles = new Date(2023, 5, 17, 17, 00, 00);
+    let fechaViernes = new Date(2023, 5, 19, 19, 30, 00);
+    let fechaSabado = new Date(2023, 5, 20, 10, 30, 00);
+
+    const MENSAJE = nombre + " tu curso inicia: ";
+    const INFORMACION = "Se te asigno el siguiente número de comisión: ";
+
+    // generar un numero para la comision
+    const generarNumero = () => {
+        return Math.round( Math.random() * 10 )
+    }
+
     do {
         alert("Los dias disponibles son LUNES, MIERCOLES, VIERNES Y SABADO");
         dia = prompt("Ingrese el día que desea iniciar el curso");
         switch (dia.toUpperCase()) {
             case "LUNES":
-                alert(nombre + ", te espero el Lunes a las 18hs." );
+                console.log(MENSAJE, fechaLunes);
+                console.log(INFORMACION, generarNumero());          
                 break;
             case "MIERCOLES":
-                    alert(nombre + ", te espero el Miércoles a las 18hs." );
+                    console.log(MENSAJE, fechaMiercoles);
+                    console.log(INFORMACION, generarNumero());
                 break;
             case "VIERNES":
-                    alert(nombre + ", te espero el Viernes a las 18hs." );
+                    console.log(MENSAJE, fechaViernes);
+                    console.log(INFORMACION, generarNumero());
                 break;
             case "SABADO":
-                    alert(nombre + ", te espero el Sábado a las 18hs." );
+                    console.log(MENSAJE, fechaSabado);
+                    console.log(INFORMACION, generarNumero());
                 break;
             default:
                 let incorrecto = true;
                 if (incorrecto) {
-                    cantidad += 1;
                     alert("EL día ingresado es incorrecto");
                 }
                 break;
@@ -117,8 +190,6 @@ function asignarTurno() {
     } while (dia.toUpperCase() == "MARTES" || dia.toUpperCase() == "JUEVES" || dia.toUpperCase() == "DOMINGO");
 }
 
-// pruebas por consola
-console.log("El nombre ingresado es: ".concat(nombre," ",apellido));
-console.log("La edad ingresada es: ".concat(edad," años"));
 
-
+let nombres = misUsuarios.map((usuario) => usuario.nombre);
+console.log("Bienvenidos a nuestros nuevos inscriptos: ", nombres);
