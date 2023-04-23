@@ -8,6 +8,7 @@ body {
 }
 .estiloMenu {
     font-size: 20px;
+    text-transform: uppercase;
 }
 .estiloLogo img {
     width: 80px;
@@ -20,17 +21,45 @@ body {
     height: 900px;
     margin-top: 50px;
 }
-/* Estilo Descripcion */
+.banner h1 {
+    font-size: 100px;
+    padding-top: 50px;
+}
+.banner p {
+    font-size: 30px;
+}
+/* Estilo caja historia */
 .descripcion {
     margin: 25px;
     padding: 10px;
 }
 .yogaDesc img{
-    width: 330px;
+    width: 470px;
+    padding-top: 15px;
 }
+.yogaDesc h2 {
+    font-size: 70px;
+    padding: 5px;
+}
+.yogaDesc p {
+    font-size: 25px;
+}
+
 /* Estilo de caja de inscripcion */
 .estiloForm {
     margin: 50px;
+}
+.fondoForm{
+    box-shadow: 10px 10px 30px #000000;
+    background-color: #72b5b3;
+}
+.fondoForm h3 {
+    font-size: 35px;
+}
+.estiloBot {
+    background-color: #ac83c5;
+    border: 1px solid black;
+    font-size: 22px;
 }
 /* Estilo cajas de imagenes */
 .boxImagenes {
