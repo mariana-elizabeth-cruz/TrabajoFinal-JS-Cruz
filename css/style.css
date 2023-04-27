@@ -1,15 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&family=Mukta+Malar:wght@300&display=swap');
+
 body {
-    background-color: #ac83c5;
+    background: linear-gradient(to bottom, #558955, #c7390d);
+    font-family: 'Kalam', cursive;
+
 }
 /* Estilo para menu */
 .menu {
-    background-color: #72b5b3;
-    height: 80px;
+    background-color: #558955;
+    height: 90px;
+    font-family: 'Mukta Malar', sans-serif;
 }
-.estiloMenu {
-    font-size: 20px;
+.estiloMenu li{
+    list-style: none;
+    font-size: 25px;
     text-transform: uppercase;
+    transition: all 0.2s;
 }
+.estiloMenu li:hover {
+    font-size: 27px;
+    color: #104823;
+    font-weight: bold;
+}
+
 .estiloLogo img {
     width: 80px;
 }
@@ -51,16 +64,30 @@ body {
 }
 .fondoForm{
     box-shadow: 10px 10px 30px #000000;
-    background-color: #72b5b3;
+    background-color: #a03811;
 }
 .fondoForm h3 {
     font-size: 35px;
 }
 .estiloBot {
-    background-color: #ac83c5;
-    border: 1px solid black;
+    /* background-color: #992a08; */
+    background-color: #6b2b13;
+    border: 2px solid black;
+    color: black;
     font-size: 22px;
+    width: 150px;
+    height: 50px;
+    transition: all 0.2s;
 }
+.estiloBot:hover {
+    background-color: #a56e44;
+    color: white;
+    border: 2px solid #992a08;
+    width: 140px;
+    height: 48px;
+    font-size: 20px;
+}
+
 /* Estilo cajas de imagenes */
 .boxImagenes {
     margin: 50px;
@@ -78,6 +105,8 @@ body {
 /* Estilo Footer*/
 .estiloFooter {
     background-color: black;
+    font-family: 'Mukta Malar', sans-serif;
+    height: 130px;
 }
 .estiloLista li {
     list-style: none;
@@ -91,8 +120,14 @@ body {
     text-transform: uppercase;
     color: #95977a;
     font-size: 15px;
+    transition: all 0.2s;
+}
+.estiloLista a:hover {
+    font-size: 16px;
+    padding: 2px;
 }
 .footerText h4 {
     font-size: 20px;
     color: #95977a;
+    padding-top: 10px;
 }
