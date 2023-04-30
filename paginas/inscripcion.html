@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -46,93 +46,113 @@
             </div>
         </nav>
     </header>
+
     <main>
         <section class="textFormulario">
             <h1>Formulario de Inscripción</h1>
             <img src="../imagenes/formulario.jpg" alt="">
         </section>
+
+        <!-- Formulario -->
         <section>
             <div class="container formulario">
-                <form class="row g-3 needs-validation" novalidate>
-                    <!-- <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                <form class="row g-4 needs-validation estiloIns" novalidate>
+                    <div class="row g-3 justify-content-md-center">
+                        <div class="col-md-4">
+                            <label for="validationCustom01" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="validationCustom01" value="" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
                         </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-                        </div>
-                    </div> -->
-                    <div class="col-md-4">
-                        <label for="validationCustom01" class="form-label">First name</label>
-                        <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="validationCustom02" class="form-label">Last name</label>
-                        <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="validationCustomUsername" class="form-label">Username</label>
-                        <div class="input-group has-validation">
-                            <span class="input-group-text" id="inputGroupPrepend">@</span>
-                            <input type="text" class="form-control" id="validationCustomUsername"
-                                aria-describedby="inputGroupPrepend" required>
-                            <div class="invalid-feedback">
-                                Please choose a username.
+                        <div class="col-md-4">
+                            <label for="validationCustom02" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" id="validationCustom02" value="" required>
+                            <div class="valid-feedback">
+                                Looks good!
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <label for="exampleDataList" class="form-label">Ciudad</label>
-                        <input class="form-control" list="datalistOptions" id="exampleDataList"
-                            placeholder="Type to search...">
-                        <datalist id="datalistOptions">
-                            <option value="Jujuy">
-                            <option value="Salta">
-                            <option value="Tucuman">
-                            <option value="Santiago del Estero">
-                            <option value="Formosa">
-                        </datalist>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="validationCustom04" class="form-label">State</label>
-                        <select class="form-select" id="validationCustom04" required>
-                            <option selected disabled value="">Choose...</option>
-                            <option>...</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please select a valid state.
+                    
+                    <div class="row justify-content-md-center needs-validation" novalidate>
+                        <div class="col-md-4">
+                            <label for="validationCustomUsername" class="form-label">Correo electronico</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                <input type="text" class="form-control" id="validationCustomUsername"
+                                    aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese su Correo.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="exampleDataList" class="form-label">Provincia</label>
+                            <input class="form-control" list="datalistOptions" id="exampleDataList"
+                                placeholder="Type to search...">
+                            <datalist id="datalistOptions">
+                                <option value="Jujuy">
+                                <option value="Salta">
+                                <option value="Tucuman">
+                                <option value="Santiago del Estero">
+                                <option value="Formosa">
+                                <option value=""></option>
+                            </datalist>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="validationCustom05" class="form-label">Zip</label>
-                        <input type="text" class="form-control" id="validationCustom05" required>
-                        <div class="invalid-feedback">
-                            Please provide a valid zip.
+
+                    <div class="row justify-content-md-center needs-validation" novalidate>
+                        <div class="col-md-4">
+                            <label for="validationCustom04" class="form-label">Sexo</label>
+                            <select class="form-select" required aria-label="select example">
+                                <option value="">Elija una opcion</option>
+                                <option value="1">Femenino</option>
+                                <option value="2">Masculino</option>
+                                <option value="3">Otro</option>
+                            </select>
+                            <div class="invalid-feedback">Elija una opción</div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                                Agree to terms and conditions
-                            </label>
+                        <div class="col-md-4">
+                            <label for="validationCustom05" class="form-label">CP</label>
+                            <input type="text" class="form-control" id="validationCustom05" required>
                             <div class="invalid-feedback">
-                                You must agree before submitting.
+                                Please provide a valid zip.
                             </div>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <button class="btn btn-primary" type="submit">Submit form</button>
+
+                    <div class="row justify-content-md-center needs-validation" novalidate>
+                        <div class="col-md-4">
+                            <label for="validationCustom04" class="form-label">Documento de Identidad</label>
+
+                            <input type="text" class="form-control" id="validationCustom05" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid zip.
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="validationCustom05" class="form-label">Edad</label>
+                            <input type="text" class="form-control" id="validationCustom05" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid zip.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 justify-content-md-center was-validated">
+                        <div class="col-8 form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+                            <label class="form-check-label" for="validationFormCheck1">Acepto terminos y
+                                condiciones.</label>
+                            <div class="invalid-feedback">Debe aceptar los terminos antes de enviar el formulario</div>
+                        </div>
+
+                        <div class="col-8">
+                            <button class="btn btn-primary" type="submit">Enviar formulario</button>
+                        </div>
                     </div>
                 </form>
             </div>
-
         </section>
     </main>
 
