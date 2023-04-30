@@ -98,6 +98,9 @@ body {
     text-align: center;
     text-transform: uppercase;
 }
+.textFormulario img {
+    width: 300px;
+}
 .formulario {
     margin: 70px;
     border: 1px solid black;
@@ -130,4 +133,36 @@ body {
     font-size: 20px;
     color: #95977a;
     padding-top: 10px;
+}
+
+/* Estilo seccion Biografia */
+.tituloB {
+    font-size: 100px;
+    text-transform: uppercase;
+    margin-top: 40px;
+    padding-top: 50px;
+}
+.tituloB h1 {
+    font-size: 100px;
+    text-align: center;
+    padding-top: 15px;
+}
+.acercaDe {
+    margin: 20px;
+    padding: 15px;
+}
+.estiloA img {
+    width: 400px;
+}
+.estiloA p {
+    font-size: 25px;
+    padding: 15px;
+
+}
+.estiloCont {
+    border: 1px solid black;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 70px;
+    padding: 20px 30px 30px 30px;
 }
