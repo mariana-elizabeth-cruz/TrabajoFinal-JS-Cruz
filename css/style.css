@@ -125,6 +125,15 @@ body {
 .estiloIns label {
     font-size: 20px;
 }
+.lista {
+    margin: 40px 70px 70px 70px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.lista .estiloIns {
+    height: 100px;
+}
 
 /* Estilo Footer*/
 .estiloFooter {

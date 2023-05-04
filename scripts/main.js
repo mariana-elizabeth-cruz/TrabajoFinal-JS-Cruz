@@ -1,195 +1,197 @@
-alert("¡¡¡Inscripciones Abiertas!!!");
+// Lista de Provincia
+const prov = [
+    new Ciudad(1, "Jujuy"),
+    new Ciudad(2, "La Pampa"),
+    new Ciudad(3, "Entre Rios"),
+    new Ciudad(4, "La Rioja"),
+    new Ciudad(5, "Misiones"),
+    new Ciudad(6, "Salta"),
+    new Ciudad(7, "Corrientes"),
+    new Ciudad(8, "Río Negro"),
+    new Ciudad(9, "Santiago del Estero"),
+    new Ciudad(10, "Córdoba"),
+];
 
-// creacion de clase Usuario
-class Usuario {
-    constructor(nombre, apellido, dni, edad, correo, provincia) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
-        this.edad = edad;
-        this.correo = correo;
-        this.provincia = provincia;
-    }
-}
+// Creamos una lista para las provincias
+let listaProv = document.getElementById("provincia");
+prov.forEach((unaProvincia) => {
+    let item = document.createElement("option");
+    item.value = unaProvincia.id.toString();
+    item.innerText = unaProvincia.provincia;
+    listaProv.append(item);
+})
 
-// Crear array de usuarios
+// Creamos personas
 let misUsuarios = [];
 
-let verificar = "SI";
+// se recupera el formulario
+const formulario = document.getElementById("formulario");
 
-// Ingreso de datos
-do {
-    alert("Vamos a inciar la inscripción de tu curso...");
-    pedirDatos();
-    const unUsuario = new Usuario(nombre, apellido, dni, edad, correo, provincia);
-    misUsuarios.push(unUsuario);
-
-    // Se asigna un turno dependiendo de la edad
-    controlarInscripcion(nombre, edad);
-
-    verificar = prompt("¿Desea realizar otra inscripción? SI/NO");
-
-} while (verificar.toUpperCase() != "NO");
-
-
-// mostrar lista de usuarios inscriptos
-misUsuarios.forEach( (lista)=> {
-    console.log("Datos personales de los Inscriptos: ", lista);
-} )
-
-
-// Pedimos los datos al usuario 
-function pedirDatos() {
-    cargarNombre();
-    cargarApellido();
-    cargarDni();
-    cargarEdad();
-    cargarCorreo();
-    cargarProvincia();
+function listarInscriptos() {
+    let bodyTable = document.getElementById("inscribirTableBody");
+    bodyTable.innerHTML = "";
+    misUsuarios.forEach((unUsuario) => {
+        let grabar = document.createElement("tr");
+        grabar.innerHTML = `<tr>
+        <td scope="row">${unUsuario.id}</td>
+        <td>${unUsuario.nombre.toString()}</td>
+        <td>${unUsuario.apellido.toString()}</td>
+        </tr>`;
+        bodyTable.append(grabar);
+    });
 }
 
-// Controlar nombre
-function cargarNombre() {
-    let continuar = true;
-    while (continuar) {
-        let testNombre = prompt("¿Podrías decirme tu nombre?");    
-        if (testNombre.length != 0) {
-            nombre = testNombre;
-            continuar = false;
-        } else {
-            alert("Debe ingresar su nombre...")
-        }
-    }
-}
+// Ingresamos los datos de las personas
+function inscribirUsuarios() {
+    const nombre = document.getElementById("nombre").value;
+    const apellido = document.getElementById("apellido").value;
+    const direccion = document.getElementById("direccion").value;
+    const email = document.getElementById("email").value;
+    const dni = document.getElementById("dni").value;
+    const localidad = document.getElementById("localidad").value;
+    const edad = document.getElementById("edad").value;
+    const unaProvincia = document.getElementById("provincia").value;
 
-// Controlar apellido
-function cargarApellido() {
-    let continuar = true;
-    while (continuar) {
-        let testApellido = prompt("¿Cúal es tu apellido ".concat(nombre, "?")); 
-        if (testApellido.length != 0) {
-            apellido = testApellido;
-            continuar = false;
-        } else {
-            alert("Debe ingresar su apellido...")
-        }
-    }
-}
+    // Verificar la existencia de los datos
+    let inscripto = buscarInscripto(nombre, apellido);
+    
+    // const datos = 
+    // Se instancia un objeto con los datos de persona
+    if(!inscripto) {
+        inscripto = new Persona(
+            generarTurno(misUsuarios),
+            nombre,
+            apellido,
+            direccion,
+            email,
+            dni,
+            localidad,
+            edad,
+            unaProvincia
+            
+        );
 
-// Controlar DNI
-function cargarDni() {
-    let continuar = true;
-    while (continuar) {
-        testDni = parseInt(prompt("Ingrese su número de DNI:"));
-        if(isNaN(testDni) && testDni.length != 0) {
-            alert("Debe ingresar su DNI (solo se permiten números)");
-        } else {
-            dni = testDni;
-            continuar = false;
-        }
-    }
-}
-
-// Controlar edad
-function cargarEdad() {
-    let continuar = true;
-    while (continuar) {
-        testEdad = parseInt(prompt("Ingrese su edad"));
-        if(isNaN(testEdad) && testEdad.length != 0) {
-            alert("Debe ingresar su edad (solo se permiten números)");
-        } else {
-            edad = testEdad;
-            continuar = false;
-        }
-    }
-}
-
-// Controlar Correo
-function cargarCorreo() {
-    let continuar = true;
-    while (continuar) {
-        let testCorreo = prompt("Ingrese su correo electronico");    
-        if (testCorreo.length != 0) {
-            correo = testCorreo;
-            continuar = false;
-        } else {
-            alert("Debe ingresar su correo electronico")
-        }
-    }
-}
-
-// Controlar Provincia
-function cargarProvincia() {
-    let continuar = true;
-    while (continuar) {
-        let testProv = prompt("¿Cúal es tu provincia?");    
-        if (testProv.length != 0) {
-            provincia = testProv;
-            continuar = false;
-        } else {
-            alert("Debe ingresar su nombre...")
-        }
-    }
-}
-
-function controlarInscripcion (nombre, edad) {
-    // Control de edad
-    if(edad < 18) {
-        alert("Lo siento ".concat(nombre, ", no se puede asignar un turno. Debes ser mayor de edad."));
-    }
-    if (edad >= 18 ) {
-        alert("Ahora vamos a asignarte un turno ".concat(nombre));
-
-        // Asignamos una fecha a la inscripcion 
-        asignarTurno();
-    }
-}
-
-//Funcion para otorgar turno
-function asignarTurno() {
-    let fechaLunes = new Date(2023, 5, 15, 18, 00, 00);
-    let fechaMiercoles = new Date(2023, 5, 17, 17, 00, 00);
-    let fechaViernes = new Date(2023, 5, 19, 19, 30, 00);
-    let fechaSabado = new Date(2023, 5, 20, 10, 30, 00);
-
-    const MENSAJE = nombre + " tu curso inicia: ";
-    const INFORMACION = "Se te asigno el siguiente número de comisión: ";
-
-    // generar un numero para la comision
-    const generarNumero = () => {
-        return Math.round( Math.random() * 10 )
+        console.log("los inscriptos son: ", inscripto);
+        // Se agrega un inscripto nuevo a la lista
+        misUsuarios.push(inscripto);
     }
 
-    do {
-        alert("Los dias disponibles son LUNES, MIERCOLES, VIERNES Y SABADO");
-        dia = prompt("Ingrese el día que desea iniciar el curso");
-        switch (dia.toUpperCase()) {
-            case "LUNES":
-                console.log(MENSAJE, fechaLunes);
-                console.log(INFORMACION, generarNumero());          
-                break;
-            case "MIERCOLES":
-                    console.log(MENSAJE, fechaMiercoles);
-                    console.log(INFORMACION, generarNumero());
-                break;
-            case "VIERNES":
-                    console.log(MENSAJE, fechaViernes);
-                    console.log(INFORMACION, generarNumero());
-                break;
-            case "SABADO":
-                    console.log(MENSAJE, fechaSabado);
-                    console.log(INFORMACION, generarNumero());
-                break;
-            default:
-                let incorrecto = true;
-                if (incorrecto) {
-                    alert("EL día ingresado es incorrecto");
-                }
-                break;
-        }
-    } while (dia.toUpperCase() == "MARTES" || dia.toUpperCase() == "JUEVES" || dia.toUpperCase() == "DOMINGO");
+    // Buscamos el DNI del usurio ingresado y evaluamos si existe o no.
+    let unDni = buscarDni(parseInt(dni));
+    if(unDni) {
+        // informar error
+        mostrarError([inscripto.toString() + ", ya existe el DNI ingresado."]);
+
+        return false;
+    }
+
+    // Armar una lista
+    // listarInscriptos();
+    return true;
 }
 
 
-let nombres = misUsuarios.map((usuario) => usuario.nombre);
-console.log("Bienvenidos a nuestros nuevos inscriptos: ", nombres);
+//metodo para buscar nuevo usuario
+function buscarInscripto(nombre, apellido) {
+    return misUsuarios.find(
+        (estu) => 
+        estu.nombre.toUpperCase() === nombre.toUpperCase() && 
+        estu.apellido.toUpperCase() === apellido.toUpperCase()
+    );
+    
+}
+
+function buscarDni(dni) {
+  return misUsuarios.find(
+    (es) => 
+    es.dni === parseInt(dni)
+  );
+}
+
+function generarTurno( collection = []) {
+    let numeroAleatorio = Math.round( Math.random() * 101 );
+    while (collection.some((elemento) => elemento.id === numeroAleatorio) ) {
+        console.log("Este turno ya fue asignado a otra persona. Ahora vamos a generar otro.");
+        numeroAleatorio = Math.round( Math.random() * 101 );
+    }
+    return numeroAleatorio;
+}
+
+// Borrar los campos para un nuevo ingreso
+function borrarCampos() {
+    document.getElementById("nombre").value = "";
+    document.getElementById("apellido").value = "";
+    document.getElementById("direccion").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("dni").value = "";
+    document.getElementById("localidad").value = "";
+    document.getElementById("edad").value = "";
+    document.getElementById("provincia").value = "";
+
+}
+
+
+// Capturar evento del formulario
+formulario.addEventListener("submit", (event) => {
+  event.preventDefault();
+  hideMessage();
+  let error = inscribirUsuarios();
+  if(error.length > 0) {
+    showErrorMessage(error);
+    return false;
+  }
+  let resultado = inscribirUsuarios();
+    if (resultado) {
+      showSuccessMessage(["Estudiante inscripto en el curso de Meditación!"]);
+      borrarCampos();
+    }
+    return resultado;
+
+});
+
+
+  // Administrar mensajes
+
+  function mostrarError(
+    mensaje = [],
+    tipo = "success",
+    titulo = "Operación exitosa!"
+  ) {
+    let messagesContainer = document.getElementById("messages");
+    let messageBody = document.createElement("div");
+    messageBody.setAttribute("role", "alert");
+    messageBody.setAttribute("class", `alert alert-${tipo}`);
+  
+    // Personalisamos el mensaje con título y una división con los mensajes
+    let titleBody = document.createElement("h4");
+    titleBody.setAttribute("class", "alert-heading");
+    titleBody.innerText = titulo;
+    messageBody.append(titleBody);
+  
+    let divider = document.createElement("hr");
+    messageBody.append(divider);
+  
+    // Añadimos unos a uno cada uno de los mensajes
+    mensaje.forEach((msjs) => {
+      let messageItem = document.createElement("p");
+      messageItem.setAttribute("class", "mb-0");
+      messageItem.innerText = msjs;
+      messageBody.append(messageItem);
+    });
+  
+    messagesContainer.append(messageBody);
+  }
+  
+  function hideMessage() {
+    let messagesContainer = document.getElementById("messages");
+    messagesContainer.innerHTML = "";
+  }
+  
+  function showSuccessMessage(messages = []) {
+    mostrarError(messages, "success");
+  }
+  
+  function showErrorMessage(messages = []) {
+    mostrarError(messages, "danger", "Encontramos errores :(");
+  }
+
