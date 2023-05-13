@@ -111,13 +111,14 @@ function inscribirUsuarios() {
 
     // Almacenar los datos en el local storage
     localStorage.setItem("misUsuarios", JSON.stringify(misUsuarios));
+    
   } else {
     // informa un error al ingresar los mismos datos
     showErrorMessage(["Ya se encuentra registrado"]);
     return false;
   }
 
-  // Armar una lista
+  // Armar una lista de personas
   listarInscriptos(misUsuarios);
   return true;
 }
@@ -136,6 +137,7 @@ function buscarDni(dni) {
   return misUsuarios.find((es) => es.dni === dni);
 }
 
+//Generamos un Id que sera el numero de Turno asignado
 function generarTurno(collection = []) {
   let numeroAleatorio = Math.round(Math.random() * 101);
   while (collection.some((elemento) => elemento.id === numeroAleatorio)) {
@@ -160,37 +162,14 @@ function borrarCampos() {
   document.getElementById("acepto").value = "off";
 }
 
-// metodo para validar datos
-function validarDatos() {
-  let errores = [];
-  const nombre = document.getElementById("nombre").value;
-  const apellido = document.getElementById("apellido").value;
-  const direccion = document.getElementById("direccion").value;
-  const email = document.getElementById("email").value;
-  const dni = document.getElementById("dni").value;
-  const localidad = document.getElementById("localidad").value;
-  const edad = document.getElementById("edad").value;
-  const provincia = document.getElementById("provincia").value;
-  const acepto = document.getElementById("acepto").checked;
-  return errores;
-}
-
 // se recupera el formulario
 const formulario = document.getElementById("formulario");
 
 // Capturar evento del formulario
 formulario.addEventListener("submit", (event) => {
   event.preventDefault();
-  // event.target.setAttribute("class", "needs-validation");
   hideMessage();
-  // FALTA CAPTURAR ESTE EVENTO
-  // let errores = validarDatos();
-  // if (errores.length > 0) {
-  //   showErrorMessage([errores, "Debe ingresar sus datos."]);
-  //   event.target.classList.add("was.validated");
-  //   console.log("No hay personas");
-  //   return false;
-  // }
+
   let resultado = inscribirUsuarios();
   if (resultado) {
     showSuccessMessage(["Estudiante inscripto en el curso de Meditación!"]);
@@ -244,5 +223,3 @@ function showSuccessMessage(messages = []) {
 function showErrorMessage(messages = []) {
   mostrarError(messages, "danger", "Encontramos errores :(");
 }
-
-// Aplicando Localstorage y sessionstorage
