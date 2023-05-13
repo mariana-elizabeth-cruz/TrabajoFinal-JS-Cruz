@@ -96,14 +96,13 @@
                         <label for="inputState" class="form-label">Provincia</label>
                         <select id="provincia" class="form-select">
                             <option selected>Elija una opción</option>
-                            <!-- <option>...</option> -->
                         </select>
                     </div>
-                    
+
                     <div class="col-12">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
+                            <input value="" class="form-check-input" type="checkbox" id="acepto" checked>
+                            <label class="form-check-label" for="acepto">
                                 Acepto los terminos y condiciones.
                             </label>
                         </div>
@@ -121,15 +120,17 @@
                     <h2>Lista de inscriptos</h2>
                 </div>
                 <table class="table table-striped">
-                    <tr>
-                        <th scope="col">Turno</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellido</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th scope="col">Turno</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">DNI</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inscribirTableBody"></tbody>
                 </table>
-                <tbody id="inscribirTableBody">
 
-                </tbody>
 
             </div>
         </section>
