@@ -223,3 +223,4 @@ function showSuccessMessage(messages = []) {
 function showErrorMessage(messages = []) {
   mostrarError(messages, "danger", "Encontramos errores :(");
 }
+
