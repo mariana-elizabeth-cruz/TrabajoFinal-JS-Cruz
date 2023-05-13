@@ -1,8 +1,6 @@
-Proyecto de Javascript.
+Proyecto para el curso de JavaScript de Corderhouse.
 
-En este programa vamos a realizar la inscripción de los alumnos del curso de Meditación. 
-
-1. Solo se pueden inscribir hasta 5 usuarios, por una cuestión de práctica. Una vez ingresado los 5 usuarios atraves de un for, se muestra un alert() con un mensaje que le avise al proximo usuario que no se puede seguir inscribiendo.
-2. Se pide al usuario que ingrese sus datos personales a traves de una funcion para controlar los datos ingresador.
-3. Se controla la edad, el usuario no puede ser menor de 18 años. De lo contrario se termina el programa.
-4. El usuario debe ingresar que dia (LUNES, MIERCOLES, VIERNES o SABADO), puede incribirse y con un alert() se muestra el dia y la fecha.
+Este proyecto es una pagina de YOGA, tiene un Inicio donde se encuentra información sobre lo que es la práctica de yoga y la meditación; como asi tambien un boton que nos lleva a un formulario de inscripción para un curso de Meditación en el cual se implementa DOM, eventos, localStorage como asi tambien diferentes funciones realizadas en JavaScritp.
+Tiene una seccion sobre la biografia de la persona quien dicta el curso.
+Y una seccion de contacto para las personas que quisieran mandar un mensaje al sitio por alguna consulta.
+Este proyecto se realizo con HTML5, CSS, Bootstrap y Javascript.
