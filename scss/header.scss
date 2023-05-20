@@ -1,0 +1,27 @@
+$color_1: #104823;
+$font-family_1: 'Mukta Malar', sans-serif;
+$background-color_1: #558955;
+
+.menu {
+	background-color: $background-color_1;
+	height: 90px;
+	font-family: $font-family_1;
+}
+.estiloMenu {
+	li {
+		list-style: none;
+		font-size: 25px;
+		text-transform: uppercase;
+		transition: all 0.2s;
+		&:hover {
+			font-size: 27px;
+			color: $color_1;
+			font-weight: bold;
+		}
+	}
+}
+.estiloLogo {
+	img {
+		width: 80px;
+	}
+}

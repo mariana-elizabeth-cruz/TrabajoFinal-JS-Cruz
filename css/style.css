@@ -1,203 +1,214 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&family=Mukta+Malar:wght@300&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300&family=Mukta+Malar:wght@300&display=swap");
 body {
-    background: linear-gradient(to bottom, #558955, #c7390d);
-    font-family: 'Kalam', cursive;
+  background: linear-gradient(to bottom, #558955, #c7390d);
+  font-family: "Kalam", cursive;
+}
 
-}
-/* Estilo para menu */
 .menu {
-    background-color: #558955;
-    height: 90px;
-    font-family: 'Mukta Malar', sans-serif;
+  background-color: #558955;
+  height: 90px;
+  font-family: "Mukta Malar", sans-serif;
 }
-.estiloMenu li{
-    list-style: none;
-    font-size: 25px;
-    text-transform: uppercase;
-    transition: all 0.2s;
+
+.estiloMenu li {
+  list-style: none;
+  font-size: 25px;
+  text-transform: uppercase;
+  transition: all 0.2s;
 }
 .estiloMenu li:hover {
-    font-size: 27px;
-    color: #104823;
-    font-weight: bold;
+  font-size: 27px;
+  color: #104823;
+  font-weight: bold;
 }
 
 .estiloLogo img {
-    width: 80px;
+  width: 80px;
 }
+
 /* Estilo para Portada */
 .banner {
-    background-image: url(../imagenes/banner.jpg);
-    background-size: cover;
-    width: 100%;
-    height: 900px;
-    margin-top: 50px;
+  background-image: url(../imagenes/banner.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 900px;
+  margin-top: 50px;
 }
 .banner h1 {
-    font-size: 100px;
-    padding-top: 50px;
+  font-size: 100px;
+  padding-top: 50px;
 }
 .banner p {
-    font-size: 30px;
+  font-size: 30px;
 }
+
 /* Estilo caja historia */
 .descripcion {
-    margin: 25px;
-    padding: 10px;
+  margin: 25px;
+  padding: 10px;
 }
-.yogaDesc img{
-    width: 470px;
-    padding-top: 15px;
+
+.yogaDesc img {
+  width: 470px;
+  padding-top: 15px;
 }
 .yogaDesc h2 {
-    font-size: 70px;
-    padding: 5px;
+  font-size: 70px;
+  padding: 5px;
 }
 .yogaDesc p {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 /* Estilo de caja de inscripcion */
 .estiloForm {
-    margin: 50px;
+  margin: 50px;
 }
-.fondoForm{
-    box-shadow: 10px 10px 30px #000000;
-    background-color: #a03811;
+
+.fondoForm {
+  box-shadow: 10px 10px 30px #000000;
+  background-color: #a03811;
 }
 .fondoForm h3 {
-    font-size: 35px;
+  font-size: 35px;
 }
+
 .estiloBot {
-    /* background-color: #992a08; */
-    background-color: #6b2b13;
-    border: 2px solid black;
-    color: black;
-    font-size: 22px;
-    width: 150px;
-    height: 50px;
-    transition: all 0.2s;
+  background-color: #6b2b13;
+  border: 2px solid black;
+  color: black;
+  font-size: 22px;
+  width: 150px;
+  height: 50px;
+  transition: all 0.2s;
 }
 .estiloBot:hover {
-    background-color: #a56e44;
-    color: white;
-    border: 2px solid #992a08;
-    width: 140px;
-    height: 48px;
-    font-size: 20px;
+  background-color: #a56e44;
+  color: white;
+  border: 2px solid #992a08;
+  width: 140px;
+  height: 48px;
+  font-size: 20px;
 }
 
 /* Estilo cajas de imagenes */
 .boxImagenes {
-    margin: 50px;
+  margin: 50px;
 }
 
 /* Estilo Pagina de inscripcion */
 .textFormulario {
-    margin-top: 100px;
-    text-align: center;
-    text-transform: uppercase;
+  margin-top: 100px;
+  text-align: center;
+  text-transform: uppercase;
 }
 .textFormulario h1 {
-    font-size: 55px;
-    letter-spacing: 4px;
+  font-size: 55px;
+  letter-spacing: 4px;
 }
 .textFormulario img {
-    width: 500px;
+  width: 500px;
 }
 
 .formulario {
-    margin: 40px 70px 70px 70px;
-    display: grid;
-    justify-content: center;
-    align-items: center;
+  margin: 40px 70px 70px 70px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 .estiloIns {
-    margin: 20px;
-    padding: 20px;
-    width: 900px;
-    height: 700px;
-    box-shadow: 10px 10px 20px #000000;
-    filter: drop-shadow(6px 6px 8px #000000);
+  margin: 20px;
+  padding: 20px;
+  width: 900px;
+  height: 700px;
+  box-shadow: 10px 10px 20px #000000;
+  filter: drop-shadow(6px 6px 8px #000000);
 }
 .estiloIns label {
-    font-size: 20px;
-}
-.lista {
-    margin: 40px 70px 70px 70px;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-.lista .estiloIns {
-    height: 100px;
+  font-size: 20px;
 }
 
-/* Estilo Footer*/
-.estiloFooter {
-    background-color: black;
-    font-family: 'Mukta Malar', sans-serif;
-    height: 130px;
+.lista {
+  margin: 40px 70px 70px 70px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
-.estiloLista li {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 250px;
-}
-.estiloLista a{
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #95977a;
-    font-size: 15px;
-    transition: all 0.2s;
-}
-.estiloLista a:hover {
-    font-size: 16px;
-    padding: 2px;
-}
-.footerText h4 {
-    font-size: 20px;
-    color: #95977a;
-    padding-top: 10px;
+.lista .estiloIns {
+  height: 100px;
 }
 
 /* Estilo seccion Biografia */
 .tituloB {
-    font-size: 100px;
-    text-transform: uppercase;
-    margin-top: 40px;
-    padding-top: 50px;
+  font-size: 100px;
+  text-transform: uppercase;
+  margin-top: 40px;
+  padding-top: 50px;
 }
 .tituloB h1 {
-    font-size: 90px;
-    text-align: center;
-    padding-top: 15px;
+  font-size: 90px;
+  text-align: center;
+  padding-top: 15px;
 }
+
 .acercaDe {
-    margin: 20px;
-    padding: 15px;
+  margin: 20px;
+  padding: 15px;
 }
+
 .estiloA img {
-    width: 400px;
+  width: 400px;
 }
 .estiloA p {
-    font-size: 25px;
-    padding: 15px;
-
+  font-size: 25px;
+  padding: 15px;
 }
+
 /* Estilo para pagina Contacto */
 .estiloCont {
-    border: 1px solid black;
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-bottom: 70px;
-    padding: 20px 30px 30px 30px;
-} 
-.boxCont label{
-    font-size: 20px;
-    padding: 5px;
+  border: 1px solid black;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 70px;
+  padding: 20px 30px 30px 30px;
 }
+
+.boxCont label {
+  font-size: 20px;
+  padding: 5px;
+}
+
+/* Estilo Footer*/
+.estiloFooter {
+  background-color: black;
+  font-family: "Mukta Malar", sans-serif;
+  height: 130px;
+}
+
+.estiloLista li {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 250px;
+}
+.estiloLista a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #95977a;
+  font-size: 15px;
+  transition: all 0.2s;
+}
+.estiloLista a:hover {
+  font-size: 16px;
+  padding: 2px;
+}
+
+.footerText h4 {
+  font-size: 20px;
+  color: #95977a;
+  padding-top: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */

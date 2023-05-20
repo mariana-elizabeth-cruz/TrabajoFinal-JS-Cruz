@@ -45,6 +45,7 @@ function listarInscriptos(collection = []) {
 if (localStorage.getItem("misUsuarios")) {
   // recuperar usuarios
   usuariosJSON = JSON.parse(localStorage.getItem("misUsuarios"));
+
   misUsuarios = usuariosJSON.map(
     (elemento) =>
       new Persona(
@@ -60,6 +61,9 @@ if (localStorage.getItem("misUsuarios")) {
         elemento.acepto
       )
   );
+  //Se ordena los datos ingresados
+  misUsuarios.sort((primero, segundo) => primero.id - segundo.id);
+
   listarInscriptos(misUsuarios);
 }
 
@@ -98,10 +102,24 @@ function inscribirUsuarios() {
     // Buscamos el DNI del usurio ingresado y evaluamos si existe o no.
     const buscar = buscarDni(dni);
     if (buscar) {
-      // informar error
-      showErrorMessage([
-        inscripto.nombre.toUpperCase() + "  el DNI ya existe!",
-      ]);
+      console.log("el DNI ya existe!");
+      return false;
+    }
+
+    if (direccion.trim() === "") {
+      return false;
+    }
+    if (email.trim() === "") {
+    } else if (!validarEmail(email)) {
+      return false;
+    }
+    if (dni.trim() === "") {
+      return false;
+    }
+    if (localidad.trim() === "") {
+      return false;
+    }
+    if (edad.trim() === "") {
       return false;
     }
 
@@ -111,10 +129,18 @@ function inscribirUsuarios() {
 
     // Almacenar los datos en el local storage
     localStorage.setItem("misUsuarios", JSON.stringify(misUsuarios));
-    
   } else {
     // informa un error al ingresar los mismos datos
-    showErrorMessage(["Ya se encuentra registrado"]);
+    console.log("error de inscripcion");
+    const btn = document.querySelector("#enviar");
+
+    btn.addEventListener("click", () => {
+      Swal.fire({
+        icon: "error",
+        title: "Algo salio mal",
+        text: "Error al ingresar los datos",
+      });
+    });
     return false;
   }
 
@@ -162,65 +188,42 @@ function borrarCampos() {
   document.getElementById("acepto").value = "off";
 }
 
+// validacion de email
+function validarEmail(email) {
+  // Expresión regular para validar el formato de un email
+  const mail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return mail.test(email);
+}
+
 // se recupera el formulario
 const formulario = document.getElementById("formulario");
 
 // Capturar evento del formulario
 formulario.addEventListener("submit", (event) => {
   event.preventDefault();
-  hideMessage();
 
   let resultado = inscribirUsuarios();
   if (resultado) {
-    showSuccessMessage(["Estudiante inscripto en el curso de Meditación!"]);
+    Swal.fire({
+      title: "Listo!",
+      text: "Te inscribiste correctamente al curso de Meditación!",
+      icon: "success",
+      confirmButtonText: "Cerrar",
+    });
     console.log("Se agregaron personsas");
     borrarCampos();
+    return resultado;
+  } else {
+    console.log("no se ingreso nada");
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "Verifica que todos los datos esten completos.",
+    });
+    event.target.classList.add("was-validated");
+    return false;
   }
-  return resultado;
 });
 
-// Administrar mensajes
-
-function mostrarError(
-  mensaje = [],
-  tipo = "success",
-  titulo = "Operación exitosa!"
-) {
-  let messagesContainer = document.getElementById("messages");
-  let messageBody = document.createElement("div");
-  messageBody.setAttribute("role", "alert");
-  messageBody.setAttribute("class", `alert alert-${tipo}`);
-
-  // Personalisamos el mensaje con título y una división con los mensajes
-  let titleBody = document.createElement("h4");
-  titleBody.setAttribute("class", "alert-heading");
-  titleBody.innerText = titulo;
-  messageBody.append(titleBody);
-
-  let divider = document.createElement("hr");
-  messageBody.append(divider);
-
-  // Añadimos unos a uno cada uno de los mensajes
-  mensaje.forEach((msjs) => {
-    let messageItem = document.createElement("p");
-    messageItem.setAttribute("class", "mb-0");
-    messageItem.innerText = msjs;
-    messageBody.append(messageItem);
-  });
-
-  messagesContainer.append(messageBody);
-}
-
-function hideMessage() {
-  let messagesContainer = document.getElementById("messages");
-  messagesContainer.innerHTML = "";
-}
-
-function showSuccessMessage(messages = []) {
-  mostrarError(messages, "success");
-}
-
-function showErrorMessage(messages = []) {
-  mostrarError(messages, "danger", "Encontramos errores :(");
-}
+// localStorage.clear();
 

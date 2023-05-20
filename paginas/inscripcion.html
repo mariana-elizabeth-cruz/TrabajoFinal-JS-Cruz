@@ -58,44 +58,44 @@
             <div class="container">
                 <div id="messages"></div>
             </div>
-        </section>
+        <!-- </section> -->
 
         <!-- Formulario -->
-        <section>
+        <!-- <section> -->
             <div class="formulario">
                 <form id="formulario" class="row g-3 estiloIns needs-validation" novalidate>
                     <div class="col-md-6">
                         <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+                        <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre" required>
                     </div>
                     <div class="col-md-6">
                         <label for="apellid" class="form-label">Apellido</label>
-                        <input type="text" class="form-control" id="apellido" placeholder="Ingrese su apellido">
+                        <input type="text" class="form-control" id="apellido" placeholder="Ingrese su apellido" required>
                     </div>
                     <div class="col-12">
                         <label for="inputAddress" class="form-label">Dirección</label>
-                        <input type="text" class="form-control" id="direccion" placeholder="Ingrese su dirección">
+                        <input type="text" class="form-control" id="direccion" placeholder="Ingrese su dirección" required>
                     </div>
                     <div class="col-md-6">
                         <label for="inputEmail4" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="ejemplo@gmail.com">
+                        <input type="email" class="form-control" id="email" placeholder="ejemplo@gmail.com" required>
                     </div>
                     <div class="col-md-6">
                         <label for="documento" class="form-label">Documento de Identidad</label>
-                        <input type="text" class="form-control" id="dni" placeholder="XX.XXX.XXX">
+                        <input type="text" class="form-control" id="dni" placeholder="XX.XXX.XXX" required>
                     </div>
                     <div class="col-md-6">
                         <label for="inputCity" class="form-label">Localidad</label>
-                        <input type="text" class="form-control" id="localidad">
+                        <input type="text" class="form-control" id="localidad" required>
                     </div>
                     <div class="col-md-2">
                         <label for="inputZip" class="form-label">Edad</label>
-                        <input type="text" class="form-control" id="edad">
+                        <input type="text" class="form-control" id="edad" required>
                     </div>
                     <div class="col-md-4">
                         <label for="inputState" class="form-label">Provincia</label>
-                        <select id="provincia" class="form-select">
-                            <option selected>Elija una opción</option>
+                        <select id="provincia" class="form-select" required>
+                            <option selected disabled value="">Elija una opción</option>
                         </select>
                     </div>
 
@@ -108,14 +108,14 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Enviar formulario</button>
+                        <button type="submit" id="enviar" class="btn btn-primary">Enviar formulario</button>
                     </div>
                 </form>
             </div>
-        </section>
+        <!-- </section>
 
-        <section>
-            <div class="lista">
+        <section> -->
+            <div class="lista text-center">
                 <div class="estiloIns">
                     <h2>Lista de inscriptos</h2>
                 </div>
@@ -176,7 +176,11 @@
 
     </footer>
 
-    <!-- Script -->
+
+    <!-- Script de sweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Script de paginas-->
     <script src="../clases/persona.js"></script>
     <script src="../clases/provincia.js"></script>
     <script src="../scripts/main.js"></script>

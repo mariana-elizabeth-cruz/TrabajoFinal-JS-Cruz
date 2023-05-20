@@ -1,0 +1,37 @@
+$color_1: #95977a;
+$font-family_1: 'Mukta Malar', sans-serif;
+$background-color_1: black;
+
+/* Estilo Footer*/
+.estiloFooter {
+	background-color: $background-color_1;
+	font-family: $font-family_1;
+	height: 130px;
+}
+.estiloLista {
+	li {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		padding-left: 250px;
+	}
+	a {
+		text-decoration: none;
+		text-transform: uppercase;
+		color: $color_1;
+		font-size: 15px;
+		transition: all 0.2s;
+		&:hover {
+			font-size: 16px;
+			padding: 2px;
+		}
+	}
+}
+.footerText {
+	h4 {
+		font-size: 20px;
+		color: $color_1;
+		padding-top: 10px;
+	}
+}
