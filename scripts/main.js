@@ -10,6 +10,19 @@ const prov = [
   new Ciudad(8, "Río Negro"),
   new Ciudad(9, "Santiago del Estero"),
   new Ciudad(10, "Córdoba"),
+  new Ciudad(11, "Catamarca"),
+  new Ciudad(12, "Chaco"),
+  new Ciudad(13, "Formosa"),
+  new Ciudad(14, "Mendoza"),
+  new Ciudad(15, "Neuquén"),
+  new Ciudad(16, "Rio Negro"),
+  new Ciudad(17, "San Juan"),
+  new Ciudad(18, "San Luis"),
+  new Ciudad(19, "Santa Cruz"),
+  new Ciudad(20, "Santa Fe"),
+  new Ciudad(21, "Tucum+an"),
+  new Ciudad(23, "Buenos Aires"),
+  new Ciudad(22, "Tierra del Fuego")
 ];
 
 // Creamos una lista para las provincias
@@ -35,7 +48,7 @@ function listarInscriptos(collection = []) {
         <td scope="row">${unUsuario.id}</td>
         <td>${unUsuario.nombre.toUpperCase()}</td>
         <td>${unUsuario.apellido.toUpperCase()}</td>
-        <td>${unUsuario.dni}</td>
+        <td>${unUsuario.edad}</td>
         </tr>`;
     bodyTable.append(grabar);
   });
@@ -79,11 +92,12 @@ function inscribirUsuarios() {
   const provincia = document.getElementById("provincia").value;
   const acepto = document.getElementById("acepto").checked;
 
-  // buscamos nombre y apellido
-  let inscripto = buscarInscripto(nombre, apellido);
+  // Buscamos el DNI del usurio ingresado y evaluamos si existe o no.
+  let inscripto = buscarDni(dni);
 
   // recuperar provincias
   const unaProvincia = prov.find((e) => e.id.toString() === provincia);
+
   // Se instancia un objeto con los datos de persona
   if (!inscripto) {
     inscripto = new Persona(
@@ -99,13 +113,13 @@ function inscribirUsuarios() {
       acepto
     );
 
-    // Buscamos el DNI del usurio ingresado y evaluamos si existe o no.
-    const buscar = buscarDni(dni);
-    if (buscar) {
-      console.log("el DNI ya existe!");
+    // verificamos que todos los datos sean ingresados
+    if (nombre.trim() === "") {
       return false;
     }
-
+    if (apellido.trim() === "") {
+      return false;
+    }
     if (direccion.trim() === "") {
       return false;
     }
@@ -123,39 +137,18 @@ function inscribirUsuarios() {
       return false;
     }
 
-    console.log("los inscriptos son: ", inscripto);
     // Se agrega un inscripto nuevo a la lista
     misUsuarios.push(inscripto);
 
     // Almacenar los datos en el local storage
     localStorage.setItem("misUsuarios", JSON.stringify(misUsuarios));
   } else {
-    // informa un error al ingresar los mismos datos
-    console.log("error de inscripcion");
-    const btn = document.querySelector("#enviar");
-
-    btn.addEventListener("click", () => {
-      Swal.fire({
-        icon: "error",
-        title: "Algo salio mal",
-        text: "Error al ingresar los datos",
-      });
-    });
+    document.getElementById("dni").value = "";
     return false;
   }
-
   // Armar una lista de personas
   listarInscriptos(misUsuarios);
   return true;
-}
-
-//metodo para buscar nuevo usuario
-function buscarInscripto(nombre, apellido) {
-  return misUsuarios.find(
-    (estu) =>
-      estu.nombre.toUpperCase() === nombre.toUpperCase() &&
-      estu.apellido.toUpperCase() === apellido.toUpperCase()
-  );
 }
 
 //buscamos el dni ingresado
@@ -167,12 +160,16 @@ function buscarDni(dni) {
 function generarTurno(collection = []) {
   let numeroAleatorio = Math.round(Math.random() * 101);
   while (collection.some((elemento) => elemento.id === numeroAleatorio)) {
-    console.log(
-      "Este turno ya fue asignado a otra persona. Ahora vamos a generar otro."
-    );
     numeroAleatorio = Math.round(Math.random() * 101);
   }
   return numeroAleatorio;
+}
+
+// validacion de email
+function validarEmail(email) {
+  // Expresión regular para validar el formato de un email
+  const mail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return mail.test(email);
 }
 
 // Borrar los campos para un nuevo ingreso
@@ -188,13 +185,6 @@ function borrarCampos() {
   document.getElementById("acepto").value = "off";
 }
 
-// validacion de email
-function validarEmail(email) {
-  // Expresión regular para validar el formato de un email
-  const mail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return mail.test(email);
-}
-
 // se recupera el formulario
 const formulario = document.getElementById("formulario");
 
@@ -204,17 +194,17 @@ formulario.addEventListener("submit", (event) => {
 
   let resultado = inscribirUsuarios();
   if (resultado) {
+    //Se muestra un sweetAlert, confirmando el ingreso
     Swal.fire({
       title: "Listo!",
       text: "Te inscribiste correctamente al curso de Meditación!",
       icon: "success",
       confirmButtonText: "Cerrar",
     });
-    console.log("Se agregaron personsas");
     borrarCampos();
     return resultado;
   } else {
-    console.log("no se ingreso nada");
+    //sweetAlert muestra un error
     Swal.fire({
       icon: "error",
       title: "Error",
@@ -224,6 +214,3 @@ formulario.addEventListener("submit", (event) => {
     return false;
   }
 });
-
-// localStorage.clear();
-
