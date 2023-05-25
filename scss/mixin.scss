@@ -1,0 +1,22 @@
+@mixin botones {
+    background-color: $background-colorNav_3;
+    color: $colorNav_3;
+    transition: all 0.2s;
+
+    &:hover {
+        background-color: $background-colorNav_4;
+        color: $colorNav_2;
+        border: 1px solid black;
+        font-weight: bold;
+        font-size: 14px;
+    }
+}
+
+@mixin sombraCaja {
+    box-shadow: 10px 10px 30px #000000;
+    background-color: #678282;
+}
+
+@mixin colorFondo {
+    background: linear-gradient(45deg, #044f69, #89b4ad);
+}

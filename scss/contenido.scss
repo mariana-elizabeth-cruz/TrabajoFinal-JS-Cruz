@@ -158,3 +158,42 @@ $background-color_3: #a56e44;
 		padding: 5px;
 	}
 }
+
+// Estilo cajas comentarios
+.boxComentario {
+    @include colorFondo;
+    @include sombraCaja;
+    transition: all 0.3s;
+
+    h5 {
+        font-weight: bold;
+    }
+
+    p {
+        font-weight: bold;
+    }
+}
+.btnModal {
+    @include botones;
+    margin: 30px;
+
+}
+
+.btnClose {
+    background-color: $colorBtn;;
+    color: $colorNav_3;
+    transition: all 0.2s;
+    
+    &:hover {
+        background-color: $background-colorNav_4;
+        color: $colorNav_2;
+        border: 1px solid black;
+        font-weight: bold;
+        font-size: 14px;
+    }
+}
+
+.modalFondo {
+    background-color: $colorNav_3;
+    opacity: 0.9;
+}
