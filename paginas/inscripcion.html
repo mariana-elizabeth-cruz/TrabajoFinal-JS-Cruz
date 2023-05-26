@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Este es el formulario donde vas a inscribirte al taller.">
     <title>Inscripción | Sala de Meditación</title>
     <!-- Aqui va el logo -->
     <link rel="shortcut icon" href="../imagenes/logo.png" type="image/x-icon">
@@ -58,10 +59,8 @@
             <div class="container">
                 <div id="messages"></div>
             </div>
-        <!-- </section> -->
 
-        <!-- Formulario -->
-        <!-- <section> -->
+            <!-- Formulario -->
             <div class="formulario">
                 <form id="formulario" class="row g-3 estiloIns needs-validation" novalidate>
                     <div class="col-md-6">
@@ -70,11 +69,13 @@
                     </div>
                     <div class="col-md-6">
                         <label for="apellid" class="form-label">Apellido</label>
-                        <input type="text" class="form-control" id="apellido" placeholder="Ingrese su apellido" required>
+                        <input type="text" class="form-control" id="apellido" placeholder="Ingrese su apellido"
+                            required>
                     </div>
                     <div class="col-12">
                         <label for="inputAddress" class="form-label">Dirección</label>
-                        <input type="text" class="form-control" id="direccion" placeholder="Ingrese su dirección" required>
+                        <input type="text" class="form-control" id="direccion" placeholder="Ingrese su dirección"
+                            required>
                     </div>
                     <div class="col-md-6">
                         <label for="inputEmail4" class="form-label">Email</label>
@@ -108,36 +109,33 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <button type="submit" id="enviar" class="btn btn-primary">Enviar formulario</button>
+                        <button type="submit" id="enviar" class="btn estiloBot">Enviar formulario</button>
                     </div>
                 </form>
             </div>
-        <!-- </section>
-
-        <section> -->
+            <!-- Lista de estudiantes -->
             <div class="lista text-center">
                 <div class="estiloIns">
                     <h2>Bienvenidos</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nro de Legajo</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Apellido</th>
+                                <th scope="col">Edad</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inscribirTableBody"></tbody>
+                    </table>
                 </div>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nro de Legajo</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">Edad</th>
-                        </tr>
-                    </thead>
-                    <tbody id="inscribirTableBody"></tbody>
-                </table>
             </div>
         </section>
-
     </main>
 
 
-    <footer class="container-fluid text-center estiloFooter">
-        <div class="row row-cols-1 row-cols-lg-2 g-2 g-lg-3">
+    <footer class="container-fluid text-center">
+        <div class="row row-cols-2 row-cols-md-2 row-cols-lg-2 g-3">
             <div class="col">
                 <ul class="estiloLista">
                     <li>
@@ -178,7 +176,7 @@
     <!-- Script de sweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- Script de paginas-->
+    <!-- Script de Javascript-->
     <script src="../clases/persona.js"></script>
     <script src="../clases/provincia.js"></script>
     <script src="../scripts/main.js"></script>

@@ -35,11 +35,12 @@ body {
   margin-top: 50px;
 }
 .banner h1 {
+  text-transform: uppercase;
   font-size: 100px;
-  padding-top: 50px;
+  padding-top: 150px;
 }
 .banner p {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 /* Estilo caja historia */
@@ -50,14 +51,38 @@ body {
 
 .yogaDesc img {
   width: 470px;
-  padding-top: 15px;
+  box-shadow: 10px 10px 30px #000000;
+  background-color: #678282;
 }
 .yogaDesc h2 {
+  text-transform: uppercase;
   font-size: 70px;
-  padding: 5px;
+  padding: 15px;
 }
 .yogaDesc p {
-  font-size: 25px;
+  font-size: 30px;
+}
+
+/* Estilo cajas Informacion adicicional */
+.boxImagenes {
+  margin: 50px;
+}
+
+.boxInfo {
+  background: linear-gradient(to bottom, #37966a, #496327);
+}
+.boxInfo a {
+  background-color: #364a1b;
+  color: white;
+  transition: all 0.2s;
+  font-size: 18px;
+}
+.boxInfo a:hover {
+  background-color: #5d7057;
+  color: black;
+  border: 1px solid black;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 /* Estilo de caja de inscripcion */
@@ -66,34 +91,28 @@ body {
 }
 
 .fondoForm {
-  box-shadow: 10px 10px 30px #000000;
+  box-shadow: 10px 10px 30px black;
   background-color: #a03811;
 }
 .fondoForm h3 {
-  font-size: 35px;
+  font-size: 45px;
 }
-
-.estiloBot {
-  background-color: #6b2b13;
-  border: 2px solid black;
-  color: black;
-  font-size: 22px;
-  width: 150px;
-  height: 50px;
-  transition: all 0.2s;
-}
-.estiloBot:hover {
-  background-color: #a56e44;
-  color: white;
-  border: 2px solid #992a08;
-  width: 140px;
-  height: 48px;
+.fondoForm p {
   font-size: 20px;
 }
 
-/* Estilo cajas de imagenes */
-.boxImagenes {
-  margin: 50px;
+.estiloBot {
+  background-color: #364a1b;
+  color: white;
+  transition: all 0.2s;
+  font-size: 18px;
+}
+.estiloBot:hover {
+  background-color: #5d7057;
+  color: black;
+  border: 1px solid black;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 /* Estilo Pagina de inscripcion */
@@ -136,7 +155,7 @@ body {
   align-items: center;
 }
 .lista .estiloIns {
-  height: 100px;
+  height: 800px;
 }
 
 /* Estilo seccion Biografia */
@@ -147,7 +166,7 @@ body {
   padding-top: 50px;
 }
 .tituloB h1 {
-  font-size: 90px;
+  font-size: 50px;
   text-align: center;
   padding-top: 15px;
 }
@@ -167,7 +186,7 @@ body {
 
 /* Estilo para pagina Contacto */
 .estiloCont {
-  border: 1px solid black;
+  background: linear-gradient(to bottom, #37966a, #496327);
   margin-left: 100px;
   margin-right: 100px;
   margin-bottom: 70px;
@@ -176,56 +195,29 @@ body {
 
 .boxCont label {
   font-size: 20px;
-  padding: 5px;
+  padding: 15px;
+}
+
+.boxPrincipalComent {
+  margin: 80px;
 }
 
 .boxComentario {
-  background: linear-gradient(45deg, #044f69, #89b4ad);
+  background: linear-gradient(to bottom, #37966a, #496327);
   box-shadow: 10px 10px 30px #000000;
   background-color: #678282;
+  padding: 15px;
   transition: all 0.3s;
 }
-.boxComentario h5 {
+.boxComentario h2 {
   font-weight: bold;
+  text-transform: uppercase;
 }
 .boxComentario p {
   font-weight: bold;
 }
 
-.btnModal {
-  background-color: #005f75;
-  color: white;
-  transition: all 0.2s;
-  margin: 30px;
-}
-.btnModal:hover {
-  background-color: #999999;
-  color: black;
-  border: 1px solid black;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.btnClose {
-  background-color: rgb(187, 26, 26);
-  color: white;
-  transition: all 0.2s;
-}
-.btnClose:hover {
-  background-color: #999999;
-  color: black;
-  border: 1px solid black;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.modalFondo {
-  background-color: white;
-  opacity: 0.9;
-}
-
-/* Estilo Footer*/
-.estiloFooter {
+footer {
   background-color: black;
   font-family: "Mukta Malar", sans-serif;
   height: 130px;
@@ -254,6 +246,95 @@ body {
   font-size: 20px;
   color: #95977a;
   padding-top: 10px;
+}
+
+/* APLICANDO MEDIA QUERY */
+/* PARA TELEFONO */
+@media (min-width: 319px) and (max-width: 767px) {
+  .estiloLogo img {
+    width: 70px;
+  }
+  .banner {
+    width: 430px;
+    height: 350px;
+  }
+  .banner h1 {
+    text-transform: uppercase;
+    font-size: 50px;
+    text-shadow: 2px 2px 25px #323f4d, 2px 2px 5px #6692a4;
+    padding-top: 100px;
+  }
+  .banner p {
+    display: none;
+  }
+  .yogaDesc img {
+    display: none;
+  }
+  .yogaDesc h2 {
+    text-transform: uppercase;
+    font-size: 50px;
+    padding: 15px;
+  }
+  .yogaDesc p {
+    font-size: 20px;
+  }
+  .fondoForm p {
+    display: none;
+  }
+  .boxComentario {
+    display: none;
+  }
+  .tituloB h1 {
+    font-size: 30px;
+  }
+  .estiloA img {
+    width: 250px;
+  }
+  .estiloA p {
+    font-size: 25px;
+    padding: 15px;
+  }
+  footer {
+    height: 200px;
+  }
+  .estiloLista li {
+    padding-left: 0px;
+  }
+}
+/* PARA TABLET */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .banner {
+    width: 100%;
+    height: 380px;
+  }
+  .banner h1 {
+    text-transform: uppercase;
+    font-size: 50px;
+    text-shadow: 2px 2px 25px #323f4d, 2px 2px 5px #6692a4;
+    padding-top: 100px;
+  }
+  .banner p {
+    font-size: 20px;
+    text-align: start;
+    text-shadow: 2px 2px 25px #323f4d, 2px 2px 5px #c4cacc;
+    padding-left: 25px;
+  }
+  .yogaDesc img {
+    width: 300px;
+  }
+  .yogaDesc h2 {
+    font-size: 50px;
+    padding: 15px;
+  }
+  .yogaDesc p {
+    font-size: 20px;
+  }
+  footer {
+    height: 150px;
+  }
+  .estiloLista li {
+    padding-left: 50px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

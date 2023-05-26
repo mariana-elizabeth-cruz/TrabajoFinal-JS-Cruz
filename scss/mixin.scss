@@ -2,13 +2,14 @@
     background-color: $background-colorNav_3;
     color: $colorNav_3;
     transition: all 0.2s;
+    font-size: 18px;
 
     &:hover {
         background-color: $background-colorNav_4;
         color: $colorNav_2;
         border: 1px solid black;
         font-weight: bold;
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 
@@ -18,5 +19,5 @@
 }
 
 @mixin colorFondo {
-    background: linear-gradient(45deg, #044f69, #89b4ad);
+    background: linear-gradient(to bottom, #37966a, #496327);
 }

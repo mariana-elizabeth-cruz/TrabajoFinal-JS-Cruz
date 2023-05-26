@@ -7,14 +7,14 @@
 	height: 900px;
 	margin-top: 50px;
 	h1 {
+		text-transform: uppercase;
 		font-size: 100px;
-		padding-top: 50px;
+		padding-top: 150px;
 	}
 	p {
-		font-size: 30px;
+		font-size: $parrafo + 20px;
 	}
 }
-
 
 /* Estilo caja historia */
 .descripcion {
@@ -24,57 +24,49 @@
 .yogaDesc {
 	img {
 		width: 470px;
-		padding-top: 15px;
+		@include sombraCaja;
 	}
 	h2 {
+		text-transform: uppercase;
 		font-size: 70px;
-		padding: 5px;
+		padding: 15px;
 	}
 	p {
-		font-size: 25px;
+		font-size: $parrafo + 10px;
 	}
 }
 
-$color_1: black;
-$color_2: white;
-$background-color_1: #a03811;
-$background-color_2: #6b2b13;
-$background-color_3: #a56e44;
+/* Estilo cajas Informacion adicicional */
+.boxImagenes {
+    margin: 50px;
+}
+.boxInfo {
+	@include colorFondo;
+
+	a{
+		@include botones;
+	}
+}
 
 /* Estilo de caja de inscripcion */
 .estiloForm {
 	margin: 50px;
 }
 .fondoForm {
-	box-shadow: 10px 10px 30px #000000;
-	background-color: $background-color_1;
+	box-shadow: 10px 10px 30px $colorNav_2;
+	background-color: $fondoInfo;
 	h3 {
-		font-size: 35px;
+		font-size: 45px;
+	}
+	p {
+		font-size: $parrafo;
 	}
 }
+
 .estiloBot {
-	background-color: $background-color_2;
-	border: 2px solid black;
-	color: $color_1;
-	font-size: 22px;
-	width: 150px;
-	height: 50px;
-	transition: all 0.2s;
-	&:hover {
-		background-color: $background-color_3;
-		color: $color_2;
-		border: 2px solid #992a08;
-		width: 140px;
-		height: 48px;
-		font-size: 20px;
-	}
-}
+	@include botones;
 
-/* Estilo cajas de imagenes */
-.boxImagenes {
-    margin: 50px;
 }
-
 
 /* Estilo Pagina de inscripcion */
 .textFormulario {
@@ -112,7 +104,7 @@ $background-color_3: #a56e44;
 	justify-content: center;
 	align-items: center;
 	.estiloIns {
-		height: 100px;
+		height: 800px;
 	}
 }
 
@@ -124,7 +116,7 @@ $background-color_3: #a56e44;
 	margin-top: 40px;
 	padding-top: 50px;
 	h1 {
-		font-size: 90px;
+		font-size: 50px;
 		text-align: center;
 		padding-top: 15px;
 	}
@@ -146,7 +138,7 @@ $background-color_3: #a56e44;
 
 /* Estilo para pagina Contacto */
 .estiloCont {
-	border: 1px solid black;
+	@include colorFondo;
 	margin-left: 100px;
 	margin-right: 100px;
 	margin-bottom: 70px;
@@ -155,45 +147,27 @@ $background-color_3: #a56e44;
 .boxCont {
 	label {
 		font-size: 20px;
-		padding: 5px;
+		padding: 15px;
 	}
 }
 
 // Estilo cajas comentarios
+.boxPrincipalComent {
+	margin: 80px;
+}
+
 .boxComentario {
     @include colorFondo;
     @include sombraCaja;
+	padding: 15px;
     transition: all 0.3s;
 
-    h5 {
+    h2 {
         font-weight: bold;
+		text-transform: uppercase;
     }
 
     p {
         font-weight: bold;
     }
-}
-.btnModal {
-    @include botones;
-    margin: 30px;
-
-}
-
-.btnClose {
-    background-color: $colorBtn;;
-    color: $colorNav_3;
-    transition: all 0.2s;
-    
-    &:hover {
-        background-color: $background-colorNav_4;
-        color: $colorNav_2;
-        border: 1px solid black;
-        font-weight: bold;
-        font-size: 14px;
-    }
-}
-
-.modalFondo {
-    background-color: $colorNav_3;
-    opacity: 0.9;
 }

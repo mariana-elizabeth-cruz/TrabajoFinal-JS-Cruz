@@ -1,13 +1,11 @@
-$color_1: #95977a;
-$font-family_1: 'Mukta Malar', sans-serif;
-$background-color_1: black;
 
-/* Estilo Footer*/
-.estiloFooter {
-	background-color: $background-color_1;
+
+footer{
+	background-color: $colorNav_2;
 	font-family: $font-family_1;
 	height: 130px;
 }
+
 .estiloLista {
 	li {
 		list-style: none;

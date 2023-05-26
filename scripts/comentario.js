@@ -4,7 +4,7 @@ function recuperarComentario() {
   
   let bodyTable = document.getElementById("tableBody");
   bodyTable.innerHTML = "";
-  // toggleLoadingContainer(true);
+  toggleLoadingContainer(true);
   fetch("./../data/comment.json")
     .then((res) => res.json())
     .then((data) => {
@@ -28,15 +28,11 @@ function recuperarComentario() {
       bodyTable.append(record);
     })
     .finally(() => {
-      // toggleLoadingContainer(false);
+      toggleLoadingContainer(false);
       console.log("Fin del proceso")
 
     });
 }
 
-
-
 recuperarComentario();
-
-
 

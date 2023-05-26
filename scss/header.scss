@@ -1,7 +1,3 @@
-$color_1: #104823;
-$font-family_1: 'Mukta Malar', sans-serif;
-$background-color_1: #558955;
-
 .menu {
 	background-color: $background-color_1;
 	height: 90px;
@@ -15,7 +11,7 @@ $background-color_1: #558955;
 		transition: all 0.2s;
 		&:hover {
 			font-size: 27px;
-			color: $color_1;
+			color: $color_2;
 			font-weight: bold;
 		}
 	}
