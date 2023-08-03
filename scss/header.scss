@@ -2,12 +2,14 @@
 	background-color: $background-color_1;
 	font-family: $font-family_1;
 }
+
 .estiloMenu {
 	li {
 		list-style: none;
 		font-size: 25px;
 		text-transform: uppercase;
 		transition: all 0.2s;
+
 		&:hover {
 			font-size: 27px;
 			color: $color_2;
@@ -15,6 +17,7 @@
 		}
 	}
 }
+
 .estiloLogo {
 	img {
 		width: 80px;
