@@ -19,5 +19,14 @@
 }
 
 @mixin colorFondo {
-    background: linear-gradient(to bottom, #37966a, #496327);
+    // background: linear-gradient(to bottom, #37966a, #496327);
+    background: linear-gradient(to bottom, #4b7133, #949856);
+}
+
+@mixin alinearCaja {
+    display: flex;
+	flex-wrap: wrap;
+	gap: 3px;
+	justify-content: center;
+	align-items: center;
 }

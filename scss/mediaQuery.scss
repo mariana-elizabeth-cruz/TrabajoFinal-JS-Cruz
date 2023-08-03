@@ -55,6 +55,18 @@
         display: none;
     }
 
+    // Estilo Pagina de inscripcion 
+    .textFormulario {
+
+        h1 {
+            font-size: 35px;
+        }
+
+        img {
+            width: 300px;
+        }
+    }
+
     // biografia
     .tituloB {
         h1 {
@@ -73,14 +85,44 @@
         }
     }
 
+    // Estilo cajas Informacion adicicional 
+    .boxInfo {
+        text-align: center;
+        height: 450px;
+
+        p {
+            display: none;
+        }
+    }
+
+    // Estilo para pagina Contacto
+    .tituloB {
+        p {
+            font-size: $parrafo;
+        }
+    }
+    .estiloCont {
+        height: 650px;
+    }
+
+    .boxCont {
+        margin-top: 5px;
+    }
+
     // footer
     footer {
-        height: 200px;
+        height: 150px;
     }
 
     .estiloLista {
         li {
             padding-left: 0px;
+        }
+    }
+
+    .footerText {
+        h4 {
+            font-size: 15px;
         }
     }
 
@@ -125,7 +167,17 @@
         }
     }
 
-    // footer
+    // Estilo cajas Informacion adicicional 
+    .boxInfo {
+        text-align: center;
+        height: 400px;
+
+        p {
+            display: none;
+        }
+    }
+
+    // Footer
     footer {
         height: 150px;
     }
@@ -135,5 +187,11 @@
             padding-left: 50px;
         }
     }
+
+    // .footerText {
+    //     h4 {
+    //         font-size: 15px;
+    //     }
+    // }
 
 }
