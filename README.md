@@ -1,3 +1,4 @@
+# Sala de meditación
 Proyecto para el curso de JavaScript de Corderhouse.
 
 Este proyecto es una pagina de YOGA, tiene un Inicio donde se encuentra información sobre lo que es la práctica de yoga y la meditación. Tambien información extra en el cual incorpore los respectivos link a las paginas consultadas.
